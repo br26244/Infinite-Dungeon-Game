@@ -1,4 +1,4 @@
-# Dugeon Hero a Roguelike Game
+# Dungeon Hero a Roguelike Game
  > Authors: [Brandan Lee](https://github.com/TwentyLives), [Alex Hsu](https://github.com/Ahsu055), [Byron Rios](https://github.com/br26244), [Neel Parekh](https://github.com/np2400)
 
 ## Project Description
