@@ -1,30 +1,42 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=10952034&assignment_repo_type=AssignmentRepo)
- > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
- > Prompt text is any lines beginning with "\>"
- > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
-# \<Project title\>
- > Your author list below should include links to all members GitHub (remove existing author).
- 
- > Authors: \<[Jeffrey McDaniel](https://github.com/jmcda001)\>
-
- > You will be forming a group of **FOUR** students and working on an interesting project. The project has 4 phases, each one with specific requirements. A list of proposed project ideas that have been successful in previous quarters is listed in the project specifications document on Canvas. You can select an idea from the list and start thinking about the features you will implement. If you want to propose your own original idea, you will have to contact your instructor to discuss the project and obtain written permission before you submit your project proposal (Phase 1). The project work should be divided almost equally among team members. You can of course help each other, but it needs to be clear who will be responsible for which features. Additionally, you are expected to follow Scrum patterns, specifically the use of a Scrum (Project) board, Sprints, and Scrum meetings.
-
- > ## Expectations
- > * The backend of your project should be implemented in C++. If you wish to choose anoher programming language (e.g. Java, Python), please discuss with your lab TA to obtain permission.
- > * You can incorporate additional technologies/tools but they must be approved (in writing) by the instructor or the TA.
- > * Each member of the group **must** be committing code regularly and make sure their code is correctly attributed to them. We will be checking attributions to determine if there was equal contribution to the project.
- > * **Each member of the group must actively participate in the Github Project board, writing unit tests, and reviewing commited code.**
-> * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold two to three scrum/check-in meetings with your lab TA/reader at different times in addition to the final demo.
+# Dugeon Hero a Roguelike Game
+ > Authors: [Brandan Lee](https://github.com/TwentyLives), [Alex Hsu](https://github.com/Ahsu055), [Byron Rios](https://github.com/br26244), [Neel Parekh](https://github.com/np2400)
 
 ## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include:
- > * Why is it important or interesting to you?
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- > * What will be the input/output of your project?
- > * What are the features that the project provides?
- > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
- > 
- > You also need to set up an empty project board using GitHub projects (board view). Make sure you add the board under your project repository. You should also have a Product Backlog and In testing columns added.
+
+ #### Intrest/Importance
+
+This project is an early 80’s stylized exploration terminal based game, with an emphasis on user exploration and personal choice in actions.  Interactive media provides a medium of entertainment for an audience of individuals who wish to participate in similar stylized tabletop games, but with a wider accessibility in mind. This project will focus on the development of user interaction with programmed opposition and planned/designed board layout. This project is meant to represent the opportunities of which interactive media such as video games, can offer to an audience of individuals who desire an easily accessible, short, yet captivating experience, for entertainment.
+
+ #### languages/tools/technologies
+
+[C++](https://www.cplusplus.com/): Our project's primary language will be C++
+
+[Visual Studio Code](https://code.visualstudio.com/): Visual Studio Code will be used as a texteditor as well as a terminal to test code
+
+[Git](https://git-scm.com/): Git is used to make edits to our Github repository
+
+[Valgrind](https://valgrind.org/): Valgrind is a tool that is used to detect errors in memory for code
+
+[Github](https://github.com/): Github is a version control system that allows users to work together on shared code. Github also includes a project board for organizing implementations
+
+[Lucidchart](https://www.lucidchart.com/): Ludichart is a software allows easy diagram
+
+[CMake](https://cmake.org/): CMake allows simple and fast compiling of code
+
+[Google Test Framework](https://github.com/google/googletest): Google made tools that allows for testing of code
+
+
+ #### input/output
+
+ Inputs - The user will be able to create a new character and design their stats based upon a series of random questions. Once starting the game, the player will be able to navigate these dungeon floors using either a combination of wasd or arrow keys as well as turn based prompts when encountering any interaction between enemies and/or objects within the room through a series of text menus.
+
+ Outputs - The program will print out a dungeon map layout using ascii characters as well as the playable character and interactable objects within said dungeon.There will be a menu for intractable options as well as a sub bar to view player stats and inventory throughout the game.
+
+
+ #### Features
+
+ Our project is a terminal based video game, with user customization and personal user choices in mind. This game will have users choose from a series of preset background stories that could be mixed and matched to create a new experience every time the user decides to play it again. Each personal choice affects the user’s outcome, including their virtual characters strengths and weaknesses. After making their choice in character, the user will be placed into the game environment filled with varied enemy opposition, programmed to be diverse in outcomes. The user’s objective is to complete as many floors as possible, with a personal scoreboard marking the amount of floors completed, to incentivise personal competitiveness. Upon defeat however, the user’s score will be registered, and will have to start over, with the objective of beating their own score.
+ 
  > ## Phase II
  > In addition to completing the "User Interface Specification" and "Class Diagram" sections below, you will need to:
  > * Create an "Epic" (note) for each feature. Place these epics in the `Product Backlog` column
