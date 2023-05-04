@@ -7,5 +7,13 @@ int main() {
     
     level1.loadFloor("./Levels/floorTest.txt");
     level1.printFloor();
+    level1.clearFloor();
+    level1.loadFloor("./Levels/longFloorTest.txt");
+    level1.printFloor();
+    level1.clearFloor();
+    level1.loadFloor("./Levels/bigFloorTest.txt");
+    level1.printFloor();
+    level1.clearFloor();
+
     return 0;
 }

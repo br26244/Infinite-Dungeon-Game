@@ -2,6 +2,8 @@
 #include <fstream>
 #include <iostream>
 
+using namespace std;
+
 Floor::Floor(){
 
 }
@@ -29,10 +31,10 @@ void Floor::loadFloor(string file){
     //find character
     char spot;
     for(int y = 0; y < floorData.size(); y++){
-        for(int x = 0; x < floorData[x].size(); x++){
+        for(int x = 0; x < floorData[y].size(); x++){
             spot = floorData[y][x];
             if(spot == '@'){
-                cout <<"player found" << x << ", " << y << endl;
+                cout <<"player found at " << x << ", " << y << endl;
             }
         }
     }
@@ -44,4 +46,8 @@ void Floor::printFloor(){
         cout << floorData[i] << endl;
     }
 
+}
+
+void Floor::clearFloor(){
+    floorData.clear();
 }
