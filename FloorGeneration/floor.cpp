@@ -7,6 +7,8 @@ Floor::Floor(){
 }
 
 void Floor::loadFloor(string file){
+
+    //read in floor
     ifstream floor;
 
     floor.open(file);
@@ -24,9 +26,20 @@ void Floor::loadFloor(string file){
 
     floor.close();
 
+    //find character
+    char spot;
+    for(int y = 0; y < floorData.size(); y++){
+        for(int x = 0; x < floorData[x].size(); x++){
+            spot = floorData[y][x];
+            if(spot == '@'){
+                cout <<"player found" << x << ", " << y << endl;
+            }
+        }
+    }
 }
 
 void Floor::printFloor(){
+    //system("clear");
     for(int i = 0; i < floorData.size(); i++){
         cout << floorData[i] << endl;
     }
