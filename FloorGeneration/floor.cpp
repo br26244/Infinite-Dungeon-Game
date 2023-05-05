@@ -41,7 +41,7 @@ void Floor::loadFloor(string file){
 }
 
 void Floor::printFloor(){
-    //system("clear");
+    system("clear");
     for(int i = 0; i < floorData.size(); i++){
         cout << floorData[i] << endl;
     }
