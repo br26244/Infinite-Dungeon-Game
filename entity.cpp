@@ -28,6 +28,35 @@ Entity::~Entity()
 
 }
 
+//setters and getters
+int Entity::hpAccess()
+{
+    return health;
+}
+int Entity::strAccess()
+{
+    return str;
+}
+int Entity::defAccess()
+{
+    return def;
+}
+
+void Entity::modifyHealth(int hpMod)
+{
+    health += hpMod;
+}
+void Entity::modifyStrength(int strMod)
+{
+    str += strMod;
+}
+void Entity::modifyDefense(int defMod)
+{
+    def += defMod;
+}
+
+
+
 
 //Character/entity movement and boundary checks
 Entity::moveChar(Floor &floorData)
@@ -110,3 +139,4 @@ bool Entity::boundaryCheck(Floor floorData, int xCoord, int yCoord)
     return false;
     
 }
+

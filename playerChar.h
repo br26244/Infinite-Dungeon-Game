@@ -23,12 +23,11 @@ class PlayerChar: public Entity
 
         //Character movement checks 
         void moveChar(char moveInput)
-        bool boundaryCheck(int xCoord, int yCoord)
 
     private:
         //Using items from inventory
         void getItem(Item newItem)
-        void useItem()
+        void useItem(Item newItem)
         
         
 

@@ -24,8 +24,20 @@ class Entity{
         ~Entity()
 
         //Entity movement checks 
-        void moveChar(Floor *floorData)
-        bool boundaryCheck(Floor *floorData, int xCoord, int yCoord)
+        void moveChar(Floor &floorData)
+        bool boundaryCheck(Floor &floorData, int xCoord, int yCoord)
+
+        //entity stat modification/use/setters/getters
+        int hpAccess()
+        int strAccess()
+        int defAccess()
+
+        void modifyHealth(int hpMod)
+        void modifyStrength(int strMod)
+        void modifyDefense(int defMod)
+
+        //interactions with other objects/items
+        void attack(Entity oppTarget, int damage)
 
     private:
         
