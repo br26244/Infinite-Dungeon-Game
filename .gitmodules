@@ -1,3 +1,0 @@
-[submodule "FloorGeneration/googletest"]
-	path = FloorGeneration/googletest
-	url = https://github.com/google/googletest.git

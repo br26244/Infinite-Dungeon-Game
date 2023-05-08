@@ -51,3 +51,76 @@ void Floor::printFloor(){
 void Floor::clearFloor(){
     floorData.clear();
 }
+
+void Floor::moveCharacter(char input, Entity &player)
+{
+    int inputEnum = 0;
+    if(input == 'w' || input == 'W')
+    {
+        inputEnum = 1;
+    }
+    else if(input == 'a' || input == 'A')
+    {
+        inputEnum = 2;
+    }
+    else if(input == 's' || input == 'S')
+    {
+        inputEnum = 3;
+    }
+    else if(input == 'd' || input == 'D')
+    {
+        inputEnum = 4;
+    }
+
+    switch(inputEnum)
+    {
+        case 1:
+            if(boundaryCheck(player.x, player.y-1))
+            {
+                floorData[player.y][player.x] = '_';
+                floorData[player.y-1][player.x] = '@';
+                player.y -= 1;
+            }
+            break;
+        case 2:
+            if(boundaryCheck(player.x-1, player.y))
+            {
+                floorData[player.y][player.x] = '_';
+                floorData[player.y][player.x-1] = '@';
+                player.x -= 1;
+            }
+            break;
+        case 3:
+            if(boundaryCheck(player.x, player.y+1))
+            {
+                floorData[player.y][player.x] = '_';
+                floorData[player.y+1][player.x] = '@';
+                player.y += 1;
+            }
+            break;
+        case 4:
+            if(boundaryCheck(player.x+1, player.y))
+            {
+                floorData[player.y][player.x] = '_';
+                floorData[player.y][player.x+1] = '@';
+                player.x += 1;
+            }
+            break;
+    }
+}
+
+bool Floor::boundaryCheck(int xCoord, int yCoord)
+{
+    if(floorData[xCoord][yCoord] != '_')
+    {
+        cout << "There is something in the way!" << endl;
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+    return false;
+    
+}
+

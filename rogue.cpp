@@ -1,19 +1,19 @@
 #include "./FloorGeneration/floor.cpp"
+#include "./Entities/entity.cpp"
 
 using namespace std;
 
 int main() {
     Floor level1;
-    
+    Entity entity;
     level1.loadFloor("./Levels/floorTest.txt");
     level1.printFloor();
-    level1.clearFloor();
-    level1.loadFloor("./Levels/longFloorTest.txt");
-    level1.printFloor();
-    level1.clearFloor();
-    level1.loadFloor("./Levels/bigFloorTest.txt");
-    level1.printFloor();
-    level1.clearFloor();
 
+    char temp;
+
+    cin >> temp;
+
+    level1.moveCharacter(temp, entity);
+    level1.printFloor();
     return 0;
 }
