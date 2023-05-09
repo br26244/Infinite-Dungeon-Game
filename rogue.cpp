@@ -1,5 +1,6 @@
 #include "./FloorGeneration/floor.cpp"
 #include "./Entities/entity.cpp"
+#include "./conio.h/conio.h"
 
 using namespace std;
 
@@ -11,7 +12,7 @@ int main() {
 
     char temp;
 
-    cin >> temp;
+    temp = getch();
 
     level1.moveCharacter(temp, entity);
     level1.printFloor();
