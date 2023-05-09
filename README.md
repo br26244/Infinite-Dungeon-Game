@@ -42,6 +42,7 @@ This project is an early 80’s stylized exploration terminal based game, with a
 ### Navigation Diagram
 
 The main menu of the game where the player has two options to start and quit the game. The player clicks the start button to begin which takes them to the character customization screen. After customizing the character,the player can click the confirm button to proceed to the actual game. The player can now play the game and when the player dies they face permadeath and the player must start a new game or restart it.
+
 Navigation diagram can be found [by clicking this link](DesignDocs/Navigational_Diagram.pdf)
 
 ### Screen Layouts
@@ -52,12 +53,11 @@ Screen layout can be found [by clicking this link](DesignDocs/Screen_Layouts.pdf
 
 ## Class Diagram
 
+![Class Diagram](DesignDocs/Class_Diagram.png)
+
 The Enemy class is an inherited class of the base class Entity. It inherits the object into types of health, strength, defense, alongside  x and y coordinates. The Enemy class is meant to store the enemies objects in the game which includes snakes, zombies, and dragons. Each enemy type is an inherited class that inherits the Enemy class, and the entity class. Within the snake, zombie and dragon class, each constructor sets the level, health, strength and defense of each monster, alongside its coordinates. Moreover, within the constructor, bool alive is defined as true, however, is changed to false once the health of the monster enemy reaches zero. The function IsAlive, determines whether the monster type is alive or not. If health reaches zero, then the alive object is changed to false. Enemy types are stored in a vector, which all hold the separate status of the enemies. Each enemy type gets a vector, allowing for easier organization. Each enemy has a level, which modifies the preset statistics of its character. For example, a level 10 snake will additively do more damage than a level 1 snake. This modification of predetermined character statistics is done through the “lvl” functions which modify the effect enemies have on the player user with correlation to their level. Finally the Enemy class features a deconstructor, which will thoroughly delete all enemy and empty vector item’s types stored in the vector. 
 
 Moreover, the item class is an inheritance class from both enemies and entities, and has two separate vectors (items, potions)  allowing for easier organization when it comes to the two different types of items. Momentary potions allow for the player's health or experience to grow. The other type of item inherited from the item class, are “items” or permanent increases to strength or defense. However, both potions or items share the same class functions. The level type object in one of the item inheritance classes, allows for the modification of the object's properties. For example, a level 1 health potion will restore significantly less health in comparison to a level 10 potion. This modification is done through the “lvl” functions, which modify the effects of what each item does to the player in correlation to the level of the item.Finally the Item class features a deconstructor, which will thoroughly delete all item types stored in the vector
-
-
- > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
  
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
