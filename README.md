@@ -43,6 +43,9 @@ This project is an early 80’s stylized exploration terminal based game, with a
 Navigation diagram can be found [by clicking this link](DesignDocs/Navigational_Diagram.pdf)
 
 ### Screen Layouts
+
+The main menu of our program can be used to access the game via the start button. This will show a character custimization menu. Once completing this it will move onto the game screen. The game's interactables are the wasd keys to move around the map as well as the space key to interact with enemies, interactable, and moving onto the next floors. The screen will change in response to what the player is doing. For example, getting hit will cause a decrease in health or completing a level will cause the floor to say 2.
+
 Screen layout can be found [by clicking this link](DesignDocs/Screen_Layouts.pdf)
 
 ## Class Diagram
