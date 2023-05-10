@@ -1,17 +1,19 @@
 
+// menu.cpp
 #include "menu.h"
 #include <limits>
 
 using namespace std;
 
-void displayMenu() {
+void Menu::displayMenu() {
+     system("clear");
     cout << "Dungeon Hero - Roguelike Game" << endl;
     cout << "-------------------------------" << endl;
     cout << "1. Start Game" << endl;
     cout << "2. Quit" << endl;
 }
 
-MenuOption getUserChoice() {
+int Menu::getUserChoice() {
     int choice;
     
     while (true) {
@@ -22,10 +24,29 @@ MenuOption getUserChoice() {
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        } else if (choice >= 1 && choice <= 2) {
+        } else if (choice >= MenuOption::START_GAME && choice <= MenuOption::QUIT) {
             break;
         }
     }
+    system("clear");
+    return choice;
+}
+
+void Menu::run() {
+    int userChoice;
     
-    return static_cast<MenuOption>(choice);
+    do {
+        userChoice = getUserChoice();
+        
+        switch (userChoice) {
+            case MenuOption::START_GAME:
+                // Code to start the game
+                break;
+            case MenuOption::QUIT:
+                cout << "Thanks for playing Dungeon Hero. Goodbye!" << endl;
+                break;
+            default:
+                cout << "Invalid option. Please try again." << endl;
+        }
+    } while (userChoice != MenuOption::QUIT);
 }
