@@ -1,10 +1,12 @@
 #include "./FloorGeneration/floor.cpp"
 #include "./Entities/entity.cpp"
 #include "./conio.h/conio.h"
+#include "./Menu/menu.cpp"
 
 using namespace std;
 
 int main() {
+    Menu::run();
     Floor level1;
     Entity entity;
     level1.loadFloor("./Levels/floorTest.txt");

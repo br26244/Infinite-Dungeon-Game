@@ -1,16 +1,21 @@
 
-
+// menu.h
 #ifndef MENU_H
 #define MENU_H
 
 #include <iostream>
 
-enum class MenuOption {
-    START_GAME = 1,
-    QUIT
+class MenuOption {
+public:
+    static const int START_GAME = 1;
+    static const int QUIT = 2;
 };
 
-void displayMenu();
-MenuOption getUserChoice();
+class Menu {
+public:
+    static void displayMenu();
+    static int getUserChoice();
+    static void run();
+};
 
-#endif
+#endif 
