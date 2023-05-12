@@ -1,31 +1,30 @@
 #include "Enemy.h"
-#include <iostream>
 
-using namespace std;
+Enemy::Enemy(int level, string name, char symbol, int health, int damage, int defense, int xcor, int ycor) :
+    Entity(health, damage, defense, xcor, ycor), mon_level(level), mon_name(name), symbol(symbol) {}
 
-Enemy(string name, int health, int damage) : mon_name(name), mon_symbol(symbol), mon_health(health), mon_attack(attack) {}
-
-static void addMonster(Enemy monster) {
+void Enemy::addMonster(T monster) {
     mon_monsters.push_back(monster);
 }
 
-int Enemy::getHealth()const {
-    return mon_health; 
+int Enemy::getHealth() const {
+    return health; 
 }
 
-string Enemy::getName() const{
+string Enemy::getName() const {
     return mon_name;
 }
 
-void Enemy::setHealth(int health){ 
-    mon_health = health;
+void Enemy::setHealth(int hp) {
+    health = hp;
 }
 
 int Enemy::getDamage() const {
-    return mon_damage;
+    return str;
 }
+
 void Enemy::setDamage(int damage) {
-    mon_damage = damage;
+    str = damage;
 }
 
 void move() {
