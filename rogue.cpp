@@ -1,22 +1,10 @@
-#include "./FloorGeneration/floor.cpp"
-#include "./Entities/entity.cpp"
-#include "./conio.h/conio.h"
-#include "./Menu/menu.cpp"
+#include "./GameSystem/gameSystem.cpp"
 
 using namespace std;
 
 int main() {
-    Menu::run();
-    Floor level1;
-    Entity entity;
-    level1.loadFloor("./Levels/floorTest.txt");
-    level1.printFloor();
-
-    char temp;
-
-    temp = getch();
-
-    level1.moveCharacter(temp, entity);
-    level1.printFloor();
+    int i = 0;
+    gameSystem rogue;
+    rogue.startGame();
     return 0;
 }

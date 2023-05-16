@@ -16,6 +16,8 @@ class Floor{
 
         void moveCharacter(char input, Entity& player);
         bool boundaryCheck(int xCoord, int yCoord);
+        int getPlayerX();
+        int getPlayerY();
         
 
     private:

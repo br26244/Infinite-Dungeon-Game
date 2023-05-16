@@ -3,6 +3,7 @@
 #ifndef MENU_H
 #define MENU_H
 
+
 #include <iostream>
 
 class MenuOption {
@@ -15,7 +16,7 @@ class Menu {
 public:
     static void displayMenu();
     static int getUserChoice();
-    static void run();
+    static int run();
 };
 
 #endif 

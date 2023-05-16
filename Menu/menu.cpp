@@ -1,5 +1,3 @@
-
-// menu.cpp
 #include "menu.h"
 #include <limits>
 
@@ -32,7 +30,7 @@ int Menu::getUserChoice() {
     return choice;
 }
 
-void Menu::run() {
+int Menu::run() {
     int userChoice;
     
     do {
@@ -40,7 +38,7 @@ void Menu::run() {
         
         switch (userChoice) {
             case MenuOption::START_GAME:
-                // Code to start the game
+                return 1;
                 break;
             case MenuOption::QUIT:
                 cout << "Thanks for playing Dungeon Hero. Goodbye!" << endl;
@@ -49,4 +47,5 @@ void Menu::run() {
                 cout << "Invalid option. Please try again." << endl;
         }
     } while (userChoice != MenuOption::QUIT);
+    return 0;
 }

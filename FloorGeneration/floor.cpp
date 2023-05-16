@@ -27,17 +27,34 @@ void Floor::loadFloor(string file){
     }
 
     floor.close();
+}
 
-    //find character
+int Floor::getPlayerX(){
     char spot;
     for(int y = 0; y < floorData.size(); y++){
         for(int x = 0; x < floorData[y].size(); x++){
             spot = floorData[y][x];
             if(spot == '@'){
                 cout <<"player found at " << x << ", " << y << endl;
+                return x;
             }
         }
     }
+    return 0;
+}
+
+int Floor::getPlayerY(){
+    char spot;
+    for(int y = 0; y < floorData.size(); y++){
+        for(int x = 0; x < floorData[y].size(); x++){
+            spot = floorData[y][x];
+            if(spot == '@'){
+                cout <<"player found at " << x << ", " << y << endl;
+                return y;
+            }
+        }
+    }
+    return 0;
 }
 
 void Floor::printFloor(){
@@ -111,7 +128,7 @@ void Floor::moveCharacter(char input, Entity &player)
 
 bool Floor::boundaryCheck(int xCoord, int yCoord)
 {
-    if(floorData[xCoord][yCoord] != '_')
+    if(floorData[yCoord][xCoord] != '_')
     {
         cout << "There is something in the way!" << endl;
         return false;
