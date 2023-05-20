@@ -19,7 +19,7 @@ class PlayerChar: public Entity
         int xCoord;
         int yCoord;
 
-        int levelExp = level*10;
+        int levelExp = 10;
         int gold;
 
     public:

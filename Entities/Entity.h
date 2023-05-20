@@ -43,7 +43,7 @@ class Entity{
         void modifyHealth(int hpMod);
         void modifyStrength(int strMod);
         void modifyDefense(int defMod);
-        void modifyExp(int expMod);
+        //void modifyExp(int expMod);
 
         //interactions with other objects/items
         void attack(Entity &oppTarget);

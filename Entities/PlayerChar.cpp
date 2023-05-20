@@ -16,6 +16,7 @@ PlayerChar::PlayerChar() : Entity()
 }
 PlayerChar::PlayerChar(int health, int str, int def, int exp, int level, int xCoord, int yCoord, int gold) : Entity(health, str, def, level, xCoord, yCoord)
 {
+    levelExp = level*10;
     this->exp = exp;
     this->gold = gold;
     //this->inventory = inventory;
@@ -41,11 +42,11 @@ int PlayerChar::accessGold()
 
 void PlayerChar::modifyExp(int expMod)
 {
-    exp += expMod;
+    this->exp += expMod;
     while(exp >= levelExp)
     {
         exp -= levelExp;
-        this->level++;
+        level++;
         modifyHealth(5);
         modifyStrength(1);
         modifyDefense(1);
