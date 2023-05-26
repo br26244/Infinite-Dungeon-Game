@@ -1,14 +1,11 @@
 #ifndef CUSTOMIZATION
 #define CUSTOMIZATION
 
+#include "customizationModulation.cpp"
+
 class Customization{
     private:
-       
-        int health;
-        int gold;
-        int arm;
-        int str;
-
+        CustomizationModulation modulation;
     public:
         Customization();
         ~Customization();

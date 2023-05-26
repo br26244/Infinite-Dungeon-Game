@@ -4,11 +4,8 @@
 using namespace std;
 
 Customization::Customization(){
-    health = 0;
-    gold = 0;
-    arm = 0;
-    str = 0;
-
+    CustomizationModulation modulation;
+    this->modulation = modulation;
 }
 
 Customization::~Customization(){
@@ -31,13 +28,13 @@ void Customization::showFirstOption(){
     }
 
     if(choice == 1){
-        gold += 1;
+        modulation.increaseGold(1);
     }else if(choice == 2){
-        str += 1;
+        modulation.increaseStr(1);
     }else if(choice == 3){
-        arm += 1;
+        modulation.increaseArm(1);
     }else if(choice == 4){
-        health += 1;
+        modulation.increaseHealth(1);
     }
 }
 
@@ -57,13 +54,13 @@ void Customization::showSecondOption(){
     }
 
     if(choice == 1){
-        gold += 2;
+        modulation.increaseGold(2);
     }else if(choice == 2){
-        str += 2;
+        modulation.increaseStr(2);
     }else if(choice == 3){
-        arm += 2;
+        modulation.increaseArm(2);
     }else if(choice == 4){
-        health += 2;
+        modulation.increaseHealth(2);
     }
 }
 
@@ -83,13 +80,13 @@ void Customization::showThirdOption(){
     }
 
     if(choice == 1){
-        gold += 3;
+        modulation.increaseGold(3);
     }else if(choice == 2){
-        str += 3;
+        modulation.increaseStr(3);
     }else if(choice == 3){
-        arm += 3;
+        modulation.increaseArm(3);
     }else if(choice == 4){
-        health += 3;
+        modulation.increaseHealth(3);
     }
 }
 
@@ -112,17 +109,17 @@ int Customization::getUserChoice() {
 }
 
 int Customization::getHealth(){
-    return this->health;
+    return modulation.getHealth();
 }
 
 int Customization::getStr(){
-    return this->str;
+    return modulation.getStr();
 }
 
 int Customization::getGold(){
-    return this->gold;
+    return modulation.getGold();
 }
 
 int Customization::getArm(){
-    return this->arm;
+    return modulation.getArm();
 }
