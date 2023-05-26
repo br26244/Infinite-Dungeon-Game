@@ -43,9 +43,7 @@ class Entity{
         void attack(Entity oppTarget, int damage)
 
     private:
-        
-
-        
+    
 };
 
 #endif
