@@ -31,9 +31,6 @@ class Entity{
         int hpAccess()
         int strAccess()
         int defAccess()
-        int xAccess()
-        int yAccess()
-        
 
         void modifyHealth(int hpMod)
         void modifyStrength(int strMod)
@@ -43,7 +40,9 @@ class Entity{
         void attack(Entity oppTarget, int damage)
 
     private:
-    
+        
+
+        
 };
 
 #endif

@@ -41,14 +41,6 @@ int Entity::defAccess()
 {
     return def;
 }
-int Entity::xAccess()
-{
-    return xCoord;
-}
-int Entity::yAccess()
-{
-    return yCoord;
-}
 
 void Entity::modifyHealth(int hpMod)
 {
@@ -67,7 +59,7 @@ void Entity::modifyDefense(int defMod)
 
 
 //Character/entity movement and boundary checks
-/*Entity::moveChar(Floor &floorData)
+Entity::moveChar(Floor &floorData)
 {
     int inputEnum = 0;
     char movement = '';
@@ -148,4 +140,3 @@ bool Entity::boundaryCheck(Floor floorData, int xCoord, int yCoord)
     
 }
 
-*/
