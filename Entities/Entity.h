@@ -2,6 +2,7 @@
 #define __ENTITY_H__
 //#include "floor.h"
 //#include "floor.cpp"
+//#include "levelUp.h"
 
 class Entity{
     private:
@@ -12,6 +13,8 @@ class Entity{
         int def;
         int level;
         int exp;
+
+        bool isDead;
 
         //X,Y coords(?)
         int xCoord;
@@ -38,15 +41,18 @@ class Entity{
         int levelAccess();
         int xAccess();
         int yAccess();
+        bool isEntityDead();
         
 
         void modifyHealth(int hpMod);
         void modifyStrength(int strMod);
         void modifyDefense(int defMod);
-        //void modifyExp(int expMod);
+        void modifyDeathState(bool deathState);
+        void modifyExp(int expMod);
+        void modifyLevel();
 
         //interactions with other objects/items
-        void attack(Entity &oppTarget);
+        //void attack(Entity &oppTarget);
 
     private:
         

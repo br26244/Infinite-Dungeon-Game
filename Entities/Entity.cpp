@@ -1,4 +1,5 @@
 #include "Entity.h"
+//#include "levelUp.h"
 //#include "floor.h"
 //#include "floor.cpp"
 #include <iostream>
@@ -13,6 +14,7 @@ Entity::Entity()
     def = 0;
     exp = 0;
     level = 1;
+    isDead = false;
     xCoord = 0;
     yCoord = 0;
 }
@@ -22,6 +24,7 @@ Entity::Entity(int health, int str, int def, int level, int xCoord, int yCoord)
     this->str = str;
     this->def = def;
     exp = 0;
+    isDead = false;
     this->level = level;
     this->xCoord = xCoord;
     this->yCoord = yCoord;
@@ -48,6 +51,10 @@ int Entity::defAccess()
 int Entity::expAccess()
 {
     return exp;
+}
+bool Entity::isEntityDead()
+{
+    return isDead;
 }
 int Entity::levelAccess()
 {
@@ -79,16 +86,24 @@ void Entity::modifyExp(int expMod)
 {
     exp += expMod;
 }
+void Entity::modifyDeathState(bool deathState)
+{
+    isDead = deathState;
+}
+void Entity::modifyLevel()
+{
+    level++;
+}
 
 
 
-void Entity::attack(Entity &oppTarget)
+/*void Entity::attack(Entity &oppTarget)
 {
     oppTarget.modifyHealth(-str);
 }
 
 
-
+*/
 
 //Character/entity movement and boundary checks
 /*Entity::moveChar(Floor &floorData)

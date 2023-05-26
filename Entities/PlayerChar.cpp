@@ -1,7 +1,6 @@
 #include "PlayerChar.h"
 #include "Entity.h"
-//#include "floor.h"
-//#include "floor.cpp"
+//#include "levelUp.h"
 #include <iostream>
 #include <string.h>
 
@@ -10,16 +9,16 @@
 PlayerChar::PlayerChar() : Entity()
 {
     gold = 0;
-    /*invSize = 10;
-    inventory = new Item*[invSize];
-    */
+    level = 1;
+    isDead = false;
+
+
 }
 PlayerChar::PlayerChar(int health, int str, int def, int exp, int level, int xCoord, int yCoord, int gold) : Entity(health, str, def, level, xCoord, yCoord)
 {
-    levelExp = level*10;
+    isDead = false;
     this->exp = exp;
     this->gold = gold;
-    //this->inventory = inventory;
     
 }
 
@@ -40,7 +39,13 @@ int PlayerChar::accessGold()
     return gold;
 }
 
-void PlayerChar::modifyExp(int expMod)
+void PlayerChar::modifyGold(int goldMod)
+{
+    gold += goldMod;
+}
+
+
+/*void PlayerChar::modifyExp(int expMod)
 {
     this->exp += expMod;
     while(exp >= levelExp)
@@ -53,9 +58,4 @@ void PlayerChar::modifyExp(int expMod)
         levelExp = level*10;
     }
         
-}
-
-void PlayerChar::modifyGold(int goldMod)
-{
-    gold += goldMod;
-}
+}*/

@@ -4,7 +4,7 @@
 //#include "floor.h"
 //#include "floor.cpp"
 
-class PlayerChar: public Entity
+class PlayerChar: public Entity 
 {
     private:
 
@@ -18,6 +18,7 @@ class PlayerChar: public Entity
         int exp;
         int xCoord;
         int yCoord;
+        int isDead;
 
         int levelExp = 10;
         int gold;
@@ -36,7 +37,7 @@ class PlayerChar: public Entity
 
         int accessGold();
 
-        void modifyExp(int expMod);
+        //void modifyExp(int expMod);
         void modifyGold(int goldMod);
 
     private:
