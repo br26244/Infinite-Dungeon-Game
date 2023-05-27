@@ -50,6 +50,8 @@ class Entity{
         void modifyDeathState(bool deathState);
         void modifyExp(int expMod);
         void modifyLevel();
+        void modifyX(int xMod);
+        void modifyY(int yMod);
 
         //interactions with other objects/items
         //void attack(Entity &oppTarget);
