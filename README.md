@@ -43,7 +43,7 @@ This project is an early 80’s stylized exploration terminal based game, with a
 
 The main menu of the game where the player has two options to start and quit the game. The player clicks the start button to begin which takes them to the character customization screen. After customizing the character,the player can click the confirm button to proceed to the actual game. The player can now play the game and when the player dies they face permadeath and the player must start a new game or restart it.
 
-Navigation diagram can be found [by clicking this link](DesignDocs/Navigational_Diagram-2.pdf)
+Navigation diagram can be found [by clicking this link](DesignDocs/Navigational_Diagram_2.pdf)
 
 ### Screen Layouts
 
