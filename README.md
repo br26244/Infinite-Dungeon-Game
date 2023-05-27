@@ -53,7 +53,7 @@ Screen layout can be found [by clicking this link](DesignDocs/Screen_Layouts.pdf
 
 ## Class Diagram
 
-![Class Diagram](DesignDocs/Class_Diagram_(2).png)
+![Class Diagram](DesignDocs/Class_Diagram_(3).png)
 
 The Enemy class is an inherited class of the base class Entity. It inherits the object into types of health, strength, defense, alongside  x and y coordinates. The Enemy class is meant to store the enemies objects in the game which includes snakes, zombies, and dragons. Each enemy type is an inherited class that inherits the Enemy class, and the entity class. Within the snake, zombie and dragon class, each constructor sets the level, health, strength and defense of each monster, alongside its coordinates. Moreover, within the constructor, bool alive is defined as true, however, is changed to false once the health of the monster enemy reaches zero. The function IsAlive, determines whether the monster type is alive or not. If health reaches zero, then the alive object is changed to false. Enemy types are stored in a vector, which all hold the separate status of the enemies. Each enemy type gets a vector, allowing for easier organization. Each enemy has a level, which modifies the preset statistics of its character. For example, a level 10 snake will additively do more damage than a level 1 snake. This modification of predetermined character statistics is done through the “lvl” functions which modify the effect enemies have on the player user with correlation to their level. Finally the Enemy class features a deconstructor, which will thoroughly delete all enemy and empty vector item’s types stored in the vector. 
 
