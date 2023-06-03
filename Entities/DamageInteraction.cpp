@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string.h>
 
-void damageInteraction::EntityDamage(Entity &targetChar1, Entity &targetChar2)
+void DamageInteraction::entityDamage(Entity &targetChar1, Entity &targetChar2)
 {
     targetChar1.modifyHealth(-(targetChar2.strAccess()-targetChar1.defAccess()));
     if(targetChar2.hpAccess() <= 0)

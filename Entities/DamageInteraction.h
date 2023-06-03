@@ -4,12 +4,12 @@
 #include "PlayerChar.h"
 
 
-class damageInteraction
+class DamageInteraction
 {
     private:
 
     public:
-        static void EntityDamage(Entity &targetChar1, Entity &targetChar2);
+        static void entityDamage(Entity &targetChar1, Entity &targetChar2);
 
 };
 
