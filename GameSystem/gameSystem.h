@@ -2,7 +2,7 @@
 #define GAMESYSTEM
 
 #include "../FloorGeneration/floor.cpp"
-#include "../Entities/entity.cpp"
+#include "../Entities/PlayerChar.cpp"
 #include "../conio.h/conio.h"
 #include "../Menu/menu.cpp"
 #include "../Customization/customization.cpp"
@@ -10,7 +10,7 @@
 class gameSystem{
     private:
         Floor mainFloor;
-        Entity player;
+        PlayerChar player;
         Customization customization;
         bool gameRunning;
     public:

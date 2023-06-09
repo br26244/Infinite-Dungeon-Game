@@ -27,6 +27,21 @@ void Floor::loadFloor(string file){
     }
 
     floor.close();
+
+    unsigned seed = time(0);
+    srand(seed);
+    char tile = 'S';
+    int randY = rand()%(floorData.size() - 2) + 1;
+    int randX = rand()%(floorData.size() - 2) + 1;
+
+    while(floorData[randY][randX] == '@' || floorData[randY][randX] == '#'  ){
+        randY = rand()%(floorData.size() - 2) + 1;
+        randX = rand()%(floorData.size() - 2) + 1;
+    }
+    floorData[randY][randX] = tile;
+    Enemy Snake("Snake", 'S', 1,1,1,5);
+    enemies.push_back(Snake);
+    enemies.back().setPosition(randY, randX);
 }
 
 int Floor::getPlayerX(){
@@ -69,7 +84,7 @@ void Floor::clearFloor(){
     floorData.clear();
 }
 
-void Floor::moveCharacter(char input, Entity &player)
+void Floor::moveCharacter(char input, PlayerChar &player)
 {
     int inputEnum = 0;
     if(input == 'w' || input == 'W')
@@ -92,35 +107,35 @@ void Floor::moveCharacter(char input, Entity &player)
     switch(inputEnum)
     {
         case 1:
-            if(boundaryCheck(player.x, player.y-1))
+            if(boundaryCheck(player.xCoord, player.yCoord-1))
             {
-                floorData[player.y][player.x] = '_';
-                floorData[player.y-1][player.x] = '@';
-                player.y -= 1;
+                floorData[player.yCoord][player.xCoord] = '_';
+                floorData[player.yCoord-1][player.xCoord] = '@';
+                player.yCoord -= 1;
             }
             break;
         case 2:
-            if(boundaryCheck(player.x-1, player.y))
+            if(boundaryCheck(player.xCoord-1, player.yCoord))
             {
-                floorData[player.y][player.x] = '_';
-                floorData[player.y][player.x-1] = '@';
-                player.x -= 1;
+                floorData[player.yCoord][player.xCoord] = '_';
+                floorData[player.yCoord][player.xCoord-1] = '@';
+                player.xCoord -= 1;
             }
             break;
         case 3:
-            if(boundaryCheck(player.x, player.y+1))
+            if(boundaryCheck(player.xCoord, player.yCoord+1))
             {
-                floorData[player.y][player.x] = '_';
-                floorData[player.y+1][player.x] = '@';
-                player.y += 1;
+                floorData[player.yCoord][player.xCoord] = '_';
+                floorData[player.yCoord+1][player.xCoord] = '@';
+                player.yCoord += 1;
             }
             break;
         case 4:
-            if(boundaryCheck(player.x+1, player.y))
+            if(boundaryCheck(player.xCoord+1, player.yCoord))
             {
-                floorData[player.y][player.x] = '_';
-                floorData[player.y][player.x+1] = '@';
-                player.x += 1;
+                floorData[player.yCoord][player.xCoord] = '_';
+                floorData[player.yCoord][player.xCoord+1] = '@';
+                player.xCoord += 1;
             }
             break;
     }
@@ -141,3 +156,72 @@ bool Floor::boundaryCheck(int xCoord, int yCoord)
     
 }
 
+void Floor::setSym(int x, int y, char tile) {
+	floorData[y][x] = tile;
+
+}
+
+char Floor::getSym(int x, int y){
+	return floorData[y][x];
+}
+
+// void Floor::updateEnemies(Entity &player) {
+// 	char aiMove;
+// 	int playerX;
+// 	int playerY;
+// 	int enemyX;
+// 	int enemyY;
+
+
+// 	player.returnXY(playerX, playerY);
+// 	for (int i = 0; i < enemies.size(); i++) {
+// 		aiMove = enemies[i].getMove(playerX, playerY);
+// 		enemies[i].getPosition(enemyX, enemyY);
+	
+// 	switch (aiMove) {
+// 	case 'w':
+
+// 		processEnemyMove(player, i, enemyX, enemyY - 1);
+
+// 		break;
+// 	case 's':
+
+// 		processEnemyMove(player, i, enemyX, enemyY + 1);
+
+// 		break;
+// 	case 'a':
+// 		processEnemyMove(player, i, enemyX - 1, enemyY);
+// 		break;
+// 	case 'd':
+// 		processEnemyMove(player, i , enemyX + 1, enemyY);
+// 		break;
+
+// 	}
+// 	}
+// }
+
+// void Floor::processEnemyMove(Entity &player, int enemyIndex, int targetX, int targetY) {
+// 	int playerX;
+// 	int playerY;
+// 	int enemyX;
+// 	int enemyY;
+
+// 	enemies[enemyIndex].getPosition(enemyX, enemyY);
+// 	player.returnXY(playerX, playerY);
+
+// 	char moveTile = getSym(targetX, targetY);
+
+// 	switch (moveTile) {
+// 	case '_':
+// 		enemies[enemyIndex].setPosition(targetX, targetY);
+// 		setSym(enemyX, enemyY, '_');
+// 		setSym(targetX, targetY, enemies[enemyIndex].getTile());
+// 		break;
+// 	case '#':
+// 		break;
+//     case '@':
+//         break;
+// 	default:
+// 		break;
+// 	}
+// }

@@ -1,51 +1,125 @@
 #include "Enemy.h"
 
-Enemy::Enemy(int level, string name, char symbol, int health, int damage, int defense, int xcor, int ycor) :
-    Entity(health, damage, defense, xcor, ycor), mon_level(level), mon_name(name), symbol(symbol) {}
-
-void Enemy::addMonster(T monster) {
-    mon_monsters.push_back(monster);
+Enemy::Enemy(string name, char tile, int level, int attack, int defense, int health){
+	_name = name;
+	_tile = tile;
+	_level = level;
+	_attack = attack;
+	_defense = defense;
+	_health = health;
 }
 
-int Enemy::getHealth() const {
-    return health; 
+
+void Enemy::setPosition(int x, int y) {
+	_x = x;
+	_y = y;
 }
 
-string Enemy::getName() const {
-    return mon_name;
+
+void Enemy::getPosition(int &x, int &y) {
+	x = _x;
+	y = _y;
+
 }
 
-void Enemy::setHealth(int hp) {
-    health = hp;
+int Enemy::getDefense(){
+	return _defense;
 }
 
-int Enemy::getDamage() const {
-    return str;
+int Enemy::getHealth(){
+	return _health;
 }
 
-void Enemy::setDamage(int damage) {
-    str = damage;
+void Enemy::setHealth(int hp){
+	_health = hp;
+}
+void Enemy::setDefense(int dp){
+	_defense = dp;
 }
 
-void move() {
-    // Generate a random number between 0 and 3
-    int direction = rand() % 4;
-
-    if(direction == 0){// Move up
-            y -= speed;
-            break;
-    }
-    if(direction == 1){ // Move down
-            y += speed;
-            break;
-    }
-    if(direction == 2){ // Move left
-            x -= speed;
-            break;
-    }
-    if(direction == 3){ // Move right
-            x += speed;
-            break;
-    }
+int Enemy::getAttack(){
+	return _attack;
 }
 
+int Enemy::getX(){
+	return _x;
+}
+
+int Enemy::getY(){
+	return _y;
+}
+/*
+int Enemy::attack() {
+	static default_random_engine randomEngine(time(NULL));
+	uniform_int_distribution<int> attackRoll(0, _attack);
+	return attackRoll(randomEngine);
+}
+
+/*void Enemy::takeDamage(int attack) {
+	attack -= _defense;
+	//Cjecl of the attack does damage
+	if (attack > 0) {
+		_health -= attack;
+		//Check if he died
+		if (_health <= 0) {
+			return _experienceValue;
+
+		}
+
+	}
+
+
+	return 0;
+
+} */
+
+char Enemy::getMove(int playerX, int playerY) {
+	
+	static default_random_engine randomEngine(time(NULL));
+	uniform_int_distribution<int> moveRoll(0, 6);
+
+
+	int distance;
+	int dx = _x - playerX;
+	int dy = _y - playerY;
+	int adx = abs(dx);
+	int ady = abs(dy);
+	distance = adx + ady;
+	
+	//You can change 5 if you want
+	if (distance <= 5) {
+		//Moving along X axis
+		if (adx > ady) {
+			if (dx > 0) {
+				return 'a'; 
+			}
+			else {
+				return 'd'; 
+			}
+		}
+		else { //Move along Y axis
+			if (dy > 0) {
+				return 'w';
+			}
+			else {
+				return 's';
+			}
+		}
+	}
+
+	int randomMove = moveRoll(randomEngine);
+
+	switch (randomMove) {
+	case 0:
+		return 'a';
+	case 1:
+		return 'w';
+	case 2:
+		return 's';
+	case 3:
+		return 'd';
+	default:
+		return '.';
+	}
+
+}

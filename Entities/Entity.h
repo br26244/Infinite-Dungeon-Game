@@ -51,6 +51,10 @@ class Entity{
         void modifyExp(int expMod);
         void modifyLevel();
 
+        void setX(int);
+        void setY(int);
+        void returnXY(int&x,int&y);
+
         //interactions with other objects/items
         //void attack(Entity &oppTarget);
 

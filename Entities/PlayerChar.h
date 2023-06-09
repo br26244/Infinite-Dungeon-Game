@@ -16,15 +16,16 @@ class PlayerChar: public Entity
         int def;
         int level;
         int exp;
-        int xCoord;
-        int yCoord;
         int isDead;
 
         int levelExp = 10;
         int gold;
 
     public:
-    
+
+        int xCoord;
+        int yCoord;
+
         //PlayerChar default/initial constructor and 
         PlayerChar();
         PlayerChar(int health, int str, int def, int exp, int level, int xCoord, int yCoord, int gold);

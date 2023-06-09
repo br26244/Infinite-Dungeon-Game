@@ -95,96 +95,16 @@ void Entity::modifyLevel()
     level++;
 }
 
-
-
-/*void Entity::attack(Entity &oppTarget)
-{
-    oppTarget.modifyHealth(-str);
+void Entity::returnXY(int &x, int&y){
+    x = xCoord;
+    y = yCoord;
 }
 
-
-*/
-
-//Character/entity movement and boundary checks
-/*Entity::moveChar(Floor &floorData)
-{
-    int inputEnum = 0;
-    char movement = '';
-    if(movement == 'w' || movement == 'W')
-    {
-        inputEnum = 1;
-    }
-    else if(movement == 'a' || movement == 'A')
-    {
-        inputEnum = 2;
-    }
-    else if(movement == 's' || movement == 'S')
-    {
-        inputEnum = 3;
-    }
-    else if(movement == 'd' || movement == 'D')
-    {
-        inputEnum = 4;
-    }
-
-    switch(inputEnum)
-    {
-        case 1:
-            if(boundaryCheck(floorData, xCoord, yCoord+1))
-            {
-                floorData[xCoord][yCoord] = "_";
-                floorData[xCoord][yCoord+1] = "@";
-                yCoord += 1;
-            }
-            break;
-        case 2:
-            if(boundaryCheck(floorData, xCoord-1, yCoord))
-            {
-                floorData[xCoord][yCoord] = "_";
-                floorData[xCoord-1][yCoord] = "@";
-                xCoord -= 1;
-            }
-            break;
-        case 3:
-            if(boundaryCheck(floorData, xCoord, yCoord-1))
-            {
-                floorData[xCoord][yCoord] = "_";
-                floorData[xCoord][yCoord-1] = "@";
-                yCoord -= 1;
-            }
-            break;
-        case 1:
-            if(boundaryCheck(floorData, xCoord+1, yCoord))
-            {
-                floorData[xCoord][yCoord] = "_";
-                floorData[xCoord+1][yCoord] = "@";
-                xCoord += 1;
-            }
-            break;
-    }
+void Entity::setX(int x){
+    xCoord = x;
 }
 
-bool Entity::boundaryCheck(Floor floorData, int xCoord, int yCoord)
-{
-    Floor tempFloor = floorData;
-    if(tempFloor[xCoord][yCoord] != "_"
-        && xCoord > 0
-        && yCoord > 0
-        && xCoord < tempFloor.xSize
-        && xCoord < tempFloor.ySize;)
-    {
-        delete tempFloor;
-        cout << "There is something in the way!";
-        return false;
-    }
-    else
-    {
-        delete tempFloor;
-        return true;
-    }
-    delete tempFloor;
-    return false;
-    
+void Entity::setY(int y){
+    yCoord = y;
 }
 
-*/

@@ -1,6 +1,4 @@
 #include "entity.h"
-#include "floor.h"
-#include "floor.cpp"
 #include <iostream>
 #include <string.h>
 

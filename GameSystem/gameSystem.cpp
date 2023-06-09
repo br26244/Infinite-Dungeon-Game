@@ -3,8 +3,8 @@
 gameSystem::gameSystem(){
     Floor mainFloor;
     this->mainFloor = mainFloor;
-    Entity entity;
-    this->player = entity;
+    PlayerChar player;
+    this->player = player;
     Customization customization;
     this->customization = customization;
     this->gameRunning = true;

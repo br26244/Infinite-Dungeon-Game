@@ -1,25 +1,47 @@
 #ifndef __ENEMY_H__
 #define __ENEMY_H__
-#include "Entity.h"
-template <class T>
-class Enemy : public Entity {
-public:
-    Enemy(int level, string name, char symbol, int health, int damage, int defense, int xcor, int ycor);
-    virtual ~Enemy() = default;
+#include <ctime>
+#include <string>
+#include <iostream>
+#include <random>
 
-    void addMonster(T monster);
-    virtual char getSymbol() const = 0;  // Pure virtual function to get the enemy's symbol
+using namespace std;
+class Enemy{
+    public:
+	Enemy(string name, char tile, int level, int attack, int defense , int health);
+	
+	//int attack();
+	//setters
+	void setPosition(int x, int y);
+	void setHealth(int hp);
+	void setDefense(int dp);
+	int getHealth();
+	int getDefense();
+	int getAttack();
+	int getX();
+	int getY();
+	//Getters
+	void getPosition(int &x, int &y);
+	string getName() { return _name; }
+	//int takeDamage(int attack);
+	char getTile() { return _tile; }
+	//Gets AI move command
+	char getMove(int playerX, int playerY);
 
-    int getHealth() const;
-    void setHealth(int health);
-    int getDamage() const;
-    void setDamage(int damage);
-    void move();
+	int _x;
+	int _y;
 
-protected:
-    vector<T> mon_monsters;
-    int mon_level;
-    string mon_name;
-    char symbol;
+
+
+    private:
+	string _name;
+	char _tile;
+	int _level;
+	int _attack;
+	int _defense;
+	int _health;
+    
+	//Position
+	
 };
 #endif
