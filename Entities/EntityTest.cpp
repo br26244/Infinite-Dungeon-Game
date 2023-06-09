@@ -74,4 +74,10 @@ TEST(DamagingEnemies, defenseTest1){
     EXPECT_EQ(testChar.hpAccess(), 10);
 }
 
+TEST(DamagingEnemies, deathTest){
+    PlayerChar testChar = new PlayerChar(10, 10, 1, 0, 1, 0, 0, 0);
+    Enemy testEnemy = new Enemy("snake", 's', 1, 1, 0, 5);
+    DamageInteraction::entityDamage(testEnemy, testChar);
+    EXPECT_EQ(testEnemy.getDeathState(), true);
+}
 

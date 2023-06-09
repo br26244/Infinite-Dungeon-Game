@@ -15,8 +15,8 @@ Entity::Entity()
     exp = 0;
     level = 1;
     isDead = false;
-    xCoord = 0;
-    yCoord = 0;
+    x = 0;
+    y = 0;
 }
 Entity::Entity(int health, int str, int def, int level, int xCoord, int yCoord)
 {
@@ -26,8 +26,8 @@ Entity::Entity(int health, int str, int def, int level, int xCoord, int yCoord)
     exp = 0;
     isDead = false;
     this->level = level;
-    this->xCoord = xCoord;
-    this->yCoord = yCoord;
+    x = xCoord;
+    y = yCoord;
 }
 
 Entity::~Entity()
@@ -62,11 +62,11 @@ int Entity::levelAccess()
 }
 int Entity::xAccess()
 {
-    return xCoord;
+    return x;
 }
 int Entity::yAccess()
 {
-    return yCoord;
+    return y;
 }
 
 

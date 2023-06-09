@@ -17,11 +17,13 @@ class Entity{
         bool isDead;
 
         //X,Y coords(?)
-        int xCoord;
-        int yCoord;
+        
 
     public:
         //Entity default/initial constructor and 
+        int x;
+        int y;
+
         Entity();
         Entity(int health, int str, int def, int level, int xCoord, int yCoord);
 
