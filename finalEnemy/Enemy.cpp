@@ -120,7 +120,7 @@ char Enemy::getMove(int playerX, int playerY) {
 	case 3:
 		return 'd';
 	default:
-		return '.';
+		return '_';
 	}
 
 }

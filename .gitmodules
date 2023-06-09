@@ -1,6 +1,9 @@
 [submodule "conio.h"]
 	path = conio.h
 	url = https://github.com/zoelabbb/conio.h.git
-[submodule "test/conio.h"]
-	path = test/conio.h
+[submodule "testing/conio.h"]
+	path = testing/conio.h
 	url = https://github.com/zoelabbb/conio.h.git
+[submodule "tests/googletest"]
+	path = tests/googletest
+	url = https://github.com/google/googletest.git
