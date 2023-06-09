@@ -3,8 +3,8 @@
 gameSystem::gameSystem(){
     Floor mainFloor;
     this->mainFloor = mainFloor;
-    Entity entity;
-    this->player = entity;
+    PlayerChar player;
+    this->player = player;
     Customization customization;
     this->customization = customization;
     GameLayout gameLayout;
@@ -22,6 +22,7 @@ void gameSystem::startGame(){
         customization.showFirstOption();
         customization.showSecondOption();
         customization.showThirdOption();
+        customizeCharacter();
         enterFloor(randomizeFloor());
     }
 }
@@ -31,7 +32,10 @@ void gameSystem::enterFloor(string level){
     mainFloor.clearFloor();
     mainFloor.loadFloor(level);
     mainFloor.printFloor();
+    updateDisplay();
     gameLayout.printStatus();
+    setCharacterPos();
+    
 }
 
 void gameSystem::getMoveInput(){
@@ -39,6 +43,7 @@ void gameSystem::getMoveInput(){
     temp = getch();
     mainFloor.moveCharacter(temp, player);
     mainFloor.printFloor();
+    updateDisplay();
     gameLayout.printStatus();
     if(this->currentFloor != mainFloor.getFloorNumber()){
         enterFloor(randomizeFloor());
@@ -89,4 +94,20 @@ void gameSystem::death(){
     cout << "Press 'r' to go back to menu" << endl;
     string input;
     cin >> input;
+}
+
+void gameSystem::setCharacterPos(){
+    this->player.x = mainFloor.getPlayerX();
+    this->player.y = mainFloor.getPlayerY();
+}
+
+void gameSystem::customizeCharacter(){
+    this->player.modifyGold(customization.getGold());
+    this->player.modifyHealth(customization.getHealth());
+    this->player.modifyStrength(customization.getStr());
+    this->player.modifyDefense(customization.getArm());
+}
+
+void gameSystem::updateDisplay(){
+    gameLayout.setAll(player.hpAccess(), player.strAccess(), player.defAccess(), player.expAccess(), player.levelAccess(), player.accessGold());
 }

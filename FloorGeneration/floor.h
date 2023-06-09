@@ -2,7 +2,10 @@
 #define FLOOR
 #include <iostream>
 #include <vector>
-#include "../Entities/entity.h"
+#include "../Entities/Entity.h"
+#include "../Entities/PlayerChar.h"
+#include "../Enemy/Enemy.cpp"
+#include "../Item/Items.cpp"
 
 using namespace std;
 
@@ -14,14 +17,24 @@ class Floor{
         void clearFloor();
         void printFloor();
 
-        void moveCharacter(char input, Entity& player);
-        bool boundaryCheck(int xCoord, int yCoord);
+        void moveCharacter(char input, PlayerChar& player);
+        bool boundaryCheck(int xCoord, int yCoord, PlayerChar& player);
         int getPlayerX();
         int getPlayerY();
         int getFloorNumber();
+        char getSym(int x, int y);
+        void setSym(int x, int y, char tile);
+        void processEnemyMove(Entity &player, int enemyIndex, int targetX, int targetY);
+        void updateEnemies(Entity &player);
+        void spawnMonsters();
+        void spawnItems();
+        void identifyItem(Entity& player,int x,int y);
+        void itemPickUp(Entity& player, int xPoint, int yPoint, char itemType);
 
     private:
         vector <string> floorData;
+        vector <Enemy> enemies;
+        vector <Item> items;
         int floor;
 
 };
