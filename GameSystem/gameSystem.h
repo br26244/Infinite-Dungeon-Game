@@ -6,12 +6,14 @@
 #include "../conio.h/conio.h"
 #include "../Menu/menu.cpp"
 #include "../Customization/customization.cpp"
+#include "../GameLayout/GameLayout.cpp"
 
 class gameSystem{
     private:
         Floor mainFloor;
         Entity player;
         Customization customization;
+        GameLayout gameLayout;
         bool gameRunning;
         int currentFloor;
     public:
@@ -23,6 +25,7 @@ class gameSystem{
         void getMoveInput();
         string randomizeFloor();
         bool getGameStatus();
+        void death();
 
 };
 
