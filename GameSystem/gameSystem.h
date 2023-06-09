@@ -13,13 +13,16 @@ class gameSystem{
         Entity player;
         Customization customization;
         bool gameRunning;
+        int currentFloor;
     public:
         gameSystem();
         ~gameSystem();
         
         void startGame();
-        void enterFloor();
+        void enterFloor(string level);
         void getMoveInput();
+        string randomizeFloor();
+        bool getGameStatus();
 
 };
 

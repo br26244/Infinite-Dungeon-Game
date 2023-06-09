@@ -5,7 +5,7 @@
 using namespace std;
 
 Floor::Floor(){
-
+    this->floor = 1;
 }
 
 void Floor::loadFloor(string file){
@@ -130,7 +130,9 @@ bool Floor::boundaryCheck(int xCoord, int yCoord)
 {
     if(floorData[yCoord][xCoord] != '_')
     {
-        cout << "There is something in the way!" << endl;
+        if(floorData[yCoord][xCoord] == 's'){
+            this->floor += 1;
+        }
         return false;
     }
     else
@@ -141,3 +143,6 @@ bool Floor::boundaryCheck(int xCoord, int yCoord)
     
 }
 
+int Floor::getFloorNumber(){
+    return this->floor;
+}

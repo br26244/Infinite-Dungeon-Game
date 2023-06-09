@@ -18,10 +18,11 @@ class Floor{
         bool boundaryCheck(int xCoord, int yCoord);
         int getPlayerX();
         int getPlayerY();
-        
+        int getFloorNumber();
 
     private:
         vector <string> floorData;
+        int floor;
 
 };
 
