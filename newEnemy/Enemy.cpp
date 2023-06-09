@@ -7,6 +7,8 @@ Enemy::Enemy(string name, char tile, int level, int attack, int defense, int hea
 	_attack = attack;
 	_defense = defense;
 	_health = health;
+
+	_deathState = false;
 }
 
 
@@ -37,6 +39,15 @@ void Enemy::setDefense(int dp){
 	_defense = dp;
 }
 
+void Enemy::setDeathState(bool newDeathState)
+{
+	_deathState = newDeathState;
+}
+
+
+
+
+
 int Enemy::getAttack(){
 	return _attack;
 }
@@ -47,6 +58,12 @@ int Enemy::getX(){
 
 int Enemy::getY(){
 	return _y;
+}
+
+
+bool Enemy::getDeathState()
+{
+	return _deathState
 }
 /*
 int Enemy::attack() {

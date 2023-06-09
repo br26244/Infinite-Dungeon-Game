@@ -15,11 +15,16 @@ class Enemy{
 	void setPosition(int x, int y);
 	void setHealth(int hp);
 	void setDefense(int dp);
+	void setDeathState(bool newDeathState);
+
+
 	int getHealth();
 	int getDefense();
 	int getAttack();
 	int getX();
 	int getY();
+
+	bool getDeathState();
 	//Getters
 	void getPosition(int &x, int &y);
 	string getName() { return _name; }
@@ -37,6 +42,8 @@ class Enemy{
 	int _attack;
 	int _defense;
 	int _health;
+
+	bool _deathState;
     
 	//Position
 	int _x;

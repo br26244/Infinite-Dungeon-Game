@@ -1,24 +1,30 @@
 #include "PlayerChar.h"
 #include "Entity.h"
-#include "damageInteraction.h"
+#include "../newEnemy/Enemy.h"
+#include "DamageInteraction.h"
 #include <iostream>
 #include <string.h>
 
-void DamageInteraction::entityDamage(Entity &targetChar1, Entity &targetChar2)
+void DamageInteraction::entityDamage(Enemy& targetEnemy, Entity &targetChar)
 {
-    targetChar1.modifyHealth(-(targetChar2.strAccess()-targetChar1.defAccess()));
-    if(targetChar2.hpAccess() <= 0)
+    targetEnemy.setHealth(targetEnemy.getHealth()-(targetChar.strAccess()-targetEnemy.getDefense()));
+    cout << "Player struck for " << (targetChar.strAccess()-targetEnemy.getDefense()) << " damage!!\n"; 
+    if(targetEnemy.getHealth() <= 0)
     {
-        targetChar2.modifyDeathState(true);
-        targetChar1.modifyExp(targetChar2.expAccess());
+        targetEnemy.setDeathState(true);
+        cout << "Enemy has been slain!\n";
+        targetChar.modifyExp(5);
+        cout << "You have gained 5 exp from this encounter!\n";
     }
     else
     {
-        targetChar2.modifyHealth(-(targetChar1.strAccess()-targetChar2.defAccess()));
-        if(targetChar1.hpAccess() <= 0)
+        targetChar.modifyHealth(-(targetEnemy.getAttack()-targetChar.defAccess()));
+        cout << "Player was hit for " << (targetEnemy.getAttack()-targetChar.defAccess()) << " damage!!\n";
+        if(targetChar.hpAccess() <= 0)
         {
-            targetChar1.modifyDeathState(true);
-            targetChar2.modifyExp(targetChar1.expAccess());
+            targetChar.modifyDeathState(true);
+            cout << "Player has been slain!\n";
+            //targetEnemy.modifyExp(targetChar1.expAccess());
         }
     }
 }
