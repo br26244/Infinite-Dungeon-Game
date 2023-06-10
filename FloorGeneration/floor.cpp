@@ -1,4 +1,7 @@
 #include "floor.h"
+#include "../Entities/Entity.h"
+#include "../Entities/PlayerChar.h"
+#include "../Enemy/Enemy.h"
 #include <fstream>
 #include <iostream>
 #include <ctime>
@@ -136,6 +139,13 @@ bool Floor::boundaryCheck(int xCoord, int yCoord, PlayerChar &player)
         if(floorData[yCoord][xCoord] == 's'){
             this->floor += 1;
         }
+        if(floorData[yCoord][xCoord] == 'S' || floorData[yCoord][xCoord] == 'D' || floorData[yCoord][xCoord] == 'Z')
+        {
+            if(enemyAttacking(xCoord,yCoord, player))
+            {
+                return true;
+            }
+        }
         return false;
     }
     else
@@ -144,6 +154,7 @@ bool Floor::boundaryCheck(int xCoord, int yCoord, PlayerChar &player)
             player.modifyGold(1);
         }
         return true;
+    
     }
     return false;
     
@@ -232,18 +243,18 @@ void Floor::spawnMonsters(){
     unsigned seed = time(0);
     srand(seed);
     char tile = 'S';
-    int randY = rand()%(floorData.size()) + 1;
-    int randX = rand()%(floorData.size()) + 1;
+    int randY = rand()%(floorData.size());
+    int randX = rand()%(floorData.size());
     for(unsigned i = 0; i < (floorData.size() / 5) ; ++i){
-    while(floorData[randY][randX] == '@' || floorData[randY][randX] == '#' || floorData[randY][randX] == 'S' || floorData[randY][randX] == 'Z' || floorData[randY][randX] == 'D' || floorData[randY][randX] == 'h' || floorData[randY][randX] == ' ' ){
-        randY = rand()%(floorData.size() ) + 1;
-        randX = rand()%(floorData.size() ) + 1;
+    while(floorData[randY][randX] != '_'){
+        randY = rand()%(floorData.size() );
+        randX = rand()%(floorData.size() );
     }
     int chance = rand() % 10 + 1;
     if(chance >= 1 && chance <= 5){
         tile = 'S';
     }
-    else if(chance >= 6 && chance <= 8){
+    else if(chance >= 6 && chance <= 9){
         tile = 'Z';
     }
     else{
@@ -274,12 +285,12 @@ void Floor::spawnItems(){
     unsigned seed = time(0);
     srand(seed);
     char tile = 'h';
-    int randY = rand()%(floorData.size() - 2) + 1;
-    int randX = rand()%(floorData.size() - 2) + 1;
+    int randY = rand()%(floorData.size() - 2);
+    int randX = rand()%(floorData.size() - 2);
     for(unsigned i = 0; i < 2 ; ++i){
     while(floorData[randY][randX] == '@' || floorData[randY][randX] == '#' || floorData[randY][randX] == 'S' || floorData[randY][randX] == 'h' || floorData[randY][randX] == 'Z'  || floorData[randY][randX] == 'D' || floorData[randY][randX] == ' '){
-        randY = rand()%(floorData.size() - 2) + 1;
-        randX = rand()%(floorData.size() - 2) + 1;
+        randY = rand()%(floorData.size() - 2);
+        randX = rand()%(floorData.size() - 2);
     }
     floorData[randY][randX] = tile;
     Item Health(0,randX,randY);
@@ -302,4 +313,20 @@ void Floor::itemPickUp(Entity& player, int xPoint, int yPoint, char itemType){
             items.at(i).used == true;
         }
     }
+}
+
+
+
+bool Floor::enemyAttacking(int playerX, int playerY, PlayerChar &player)
+{
+    for(unsigned i = 0; i < enemies.size(); ++i){
+        if(playerX == enemies.at(i).getX() && playerY == enemies.at(i).getY()){
+            if(DamageInteraction::entityDamage(enemies.at(i), player))
+            {
+                enemies.at(i).setPosition(1,1);
+                return true;
+            }
+        }
+    }
+    return false;
 }

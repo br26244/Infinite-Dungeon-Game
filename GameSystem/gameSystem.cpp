@@ -18,6 +18,7 @@ gameSystem::~gameSystem(){
 }
 
 void gameSystem::startGame(){
+    gameRunning = true;
     if(Menu::run() == 1){
         customization.showFirstOption();
         customization.showSecondOption();
@@ -47,6 +48,9 @@ void gameSystem::getMoveInput(){
     gameLayout.printStatus();
     if(this->currentFloor != mainFloor.getFloorNumber()){
         enterFloor(randomizeFloor());
+    }
+    if(player.hpAccess() < 1){
+        gameRunning = false;
     }
     
 }

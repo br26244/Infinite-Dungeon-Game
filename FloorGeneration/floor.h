@@ -4,8 +4,10 @@
 #include <vector>
 #include "../Entities/Entity.h"
 #include "../Entities/PlayerChar.h"
+#include "../Entities/DamageInteraction.cpp"
 #include "../Enemy/Enemy.cpp"
 #include "../Item/Items.cpp"
+
 
 using namespace std;
 
@@ -30,6 +32,7 @@ class Floor{
         void spawnItems();
         void identifyItem(Entity& player,int x,int y);
         void itemPickUp(Entity& player, int xPoint, int yPoint, char itemType);
+        bool enemyAttacking(int enemyPosX, int enemyPosY, PlayerChar &targetChar);
 
     private:
         vector <string> floorData;

@@ -42,6 +42,7 @@ int Menu::run() {
                 break;
             case MenuOption::QUIT:
                 cout << "Thanks for playing Dungeon Hero. Goodbye!" << endl;
+                exit(1);
                 break;
             default:
                 cout << "Invalid option. Please try again." << endl;

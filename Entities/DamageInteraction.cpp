@@ -1,20 +1,23 @@
 #include "PlayerChar.h"
 #include "Entity.h"
-#include "../newEnemy/Enemy.h"
+#include "../Enemy/Enemy.h"
 #include "DamageInteraction.h"
+#include "levelUp.cpp"
 #include <iostream>
 #include <string.h>
 
-void DamageInteraction::entityDamage(Enemy& targetEnemy, Entity &targetChar)
+bool DamageInteraction::entityDamage(Enemy &targetEnemy, PlayerChar &targetChar)
 {
     targetEnemy.setHealth(targetEnemy.getHealth()-(targetChar.strAccess()-targetEnemy.getDefense()));
     cout << "Player struck for " << (targetChar.strAccess()-targetEnemy.getDefense()) << " damage!!\n"; 
     if(targetEnemy.getHealth() <= 0)
     {
-        targetEnemy.setDeathState(true);
+        // targetEnemy.setDeathState(true);
         cout << "Enemy has been slain!\n";
         targetChar.modifyExp(5);
         cout << "You have gained 5 exp from this encounter!\n";
+        levelUp::charLevelUp(targetChar);
+        return true;
     }
     else
     {
@@ -27,4 +30,5 @@ void DamageInteraction::entityDamage(Enemy& targetEnemy, Entity &targetChar)
             //targetEnemy.modifyExp(targetChar1.expAccess());
         }
     }
+    return false;
 }

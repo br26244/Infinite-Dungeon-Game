@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 
-#include "../newEnemy/Enemy.cpp"
+#include "../Enemy/Enemy.cpp"
 #include "DamageInteraction.cpp"
 #include "levelUp.cpp"
 #include "Entity.cpp"
