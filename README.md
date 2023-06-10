@@ -65,7 +65,7 @@ For the enemy portion of our project, we used the single responsibility principl
  Screenshots of the input/output after running your application
  Screenshot of the menu can be found ![by clicking this link](DesignDocs/menu.png)
  Screenshot of customization can be found ![by clicking this link](DesignDocs/Screenshot(customize).png)
- Screeshot of game can be found ![by clicking this link](Screenshot(game).png)
+ Screeshot of game can be found ![by clicking this link](DesignDocs/Screenshot(game).png)
  ## Installation/Usage
  Use git to clone the repository and cd into the project
  
