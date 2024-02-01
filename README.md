@@ -70,8 +70,8 @@ For the enemy portion of our project, we used the single responsibility principl
  Use git to clone the repository and cd into the project
  
  ```
- git clone https://github.com/cs100/final-project-blee275-ahsu055-npare012-brios024
- cd final-project-blee275-ahsu055-npare012-brios024/
+ git clone https://github.com/br26244/Infinite-Dungeon-Game
+ cd Infinite-Dungeon-Game/
  ```
  You will find an executable as labeled
  
